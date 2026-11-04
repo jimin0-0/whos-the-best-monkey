@@ -65,12 +65,12 @@ input:focus { border-color: var(--accent); }
 }
 
 /* ---------- 메인(입장) 화면 ----------
-   배경 그림(static/cards/title-bg.webp, 1671×941)을 그대로 깔고,
+   배경 그림(static/cards/title.png, 1671×941)을 원본 비율 그대로 깔고,
    그림 속 입력칸·버튼 자리에 실제 입력칸·버튼을 겹쳐 놓는다. 좌표는 그림 픽셀 기준. */
 .title-screen { position: fixed; inset: 0; overflow: hidden; }
 .title-stage {
   position: absolute; left: 50%; top: 50%; width: 1671px; height: 941px; transform-origin: 50% 50%;
-  background: url(/cards/title-bg.webp) center / 100% 100% no-repeat;
+  background: url(/cards/title.png) center / 100% 100% no-repeat;
 }
 .title-stage::after { /* 그림 가장자리를 바깥 정글 배경과 자연스럽게 잇는다 */
   content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 60px 30px #0b1408;

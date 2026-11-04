@@ -729,8 +729,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_file(os.path.join(STATIC_DIR, "index.html"), "text/html; charset=utf-8")
         elif url.path.startswith("/cards/"):
             name = os.path.basename(url.path)
-            if name.endswith(".webp") and name == url.path[len("/cards/"):]:
-                self.send_file(os.path.join(STATIC_DIR, "cards", name), "image/webp", cache=True)
+            ctype = {"webp": "image/webp", "png": "image/png"}.get(name.rsplit(".", 1)[-1].lower())
+            if ctype and name == url.path[len("/cards/"):]:
+                self.send_file(os.path.join(STATIC_DIR, "cards", name), ctype, cache=True)
             else:
                 self.send_error(404)
         elif url.path == "/healthz":
